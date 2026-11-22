@@ -1,22 +1,29 @@
 import FeatureItem from "./FeatureItem";
+import personIcon from "/assets/icon-person.svg";
+import cogIcon from "/assets/icon-cog.svg";
+import chartIcon from "/assets/icon-chart.svg";
 
 type FeatureItem = {
   title: string;
   description: string;
+  icon: string;
 };
 
 const features: FeatureItem[] = [
   {
     title: "Experienced Individuals",
     description: "Our network is made up of highly experienced professionals who are passionate about what they do.",
+    icon: personIcon,
   },
   {
     title: "Easy to Implement",
     description: "Our processes have been refined over years of implementation meaning our teams always deliver.",
+    icon: cogIcon,
   },
   {
     title: "Enhanced Productivity",
     description: "Our customized platform with in-built analytics helps you manage your distributed teams.",
+    icon: chartIcon,
   },
 ];
 
@@ -41,8 +48,7 @@ function FeaturesSection() {
         {features.map(feat => (
           <FeatureItem
             key={feat.title}
-            title={feat.title}
-            description={feat.description}
+            {...feat}
           />
         ))}
       </div>
