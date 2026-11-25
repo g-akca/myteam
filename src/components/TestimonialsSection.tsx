@@ -1,4 +1,35 @@
 import TestimonialItem from "./TestimonialItem";
+import kadyAvatar from "/assets/avatar-kady.jpg";
+import aiyshaAvatar from "/assets/avatar-aiysha.jpg";
+import arthurAvatar from "/assets/avatar-arthur.jpg";
+
+type TestimonialItem = {
+  name: string;
+  title: string;
+  message: string;
+  photo: string;
+};
+
+const testimonials: TestimonialItem[] = [
+  {
+    name: "Kady Baker",
+    title: "Product Manager at Bookmark",
+    message: "The team perfectly fit the specialized skill set required. They focused on the most essential features helping us launch the platform eight months faster than planned.",
+    photo: kadyAvatar,
+  },
+  {
+    name: "Aiysha Reese",
+    title: "Founder of Manage",
+    message: "We needed to automate our entire onboarding process. The team came in and built out the whole journey. Since going live, user retention has gone through the roof!",
+    photo: aiyshaAvatar,
+  },
+  {
+    name: "Arthur Clarke",
+    title: "Co-founder of MyPhysio",
+    message: "Amazing. Our team helped us build an app that delivered a new experience for hiring a physio. The launch was an instant success with 100k downloads in the first month.",
+    photo: arthurAvatar,
+  },
+];
 
 function TestimonialsSection() {
   return (
@@ -17,9 +48,12 @@ function TestimonialsSection() {
       </h2>
 
       <div className="flex flex-col gap-12">
-        <TestimonialItem />
-        <TestimonialItem />
-        <TestimonialItem />
+        {testimonials.map(tes => (
+          <TestimonialItem
+            key={tes.name}
+            {...tes}
+          />
+        ))}
       </div>
     </section>
   )
